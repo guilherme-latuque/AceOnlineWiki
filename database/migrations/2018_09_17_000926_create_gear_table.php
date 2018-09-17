@@ -15,7 +15,10 @@ class CreateGearTable extends Migration
     {
         Schema::create('gear', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 10);
+            $table->string('type', 10);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateGearTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gear');
+        Schema::drop('gear');
     }
 }
